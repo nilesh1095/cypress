@@ -13,6 +13,7 @@ describe('Basic commands in cypress' , ()=>{
         cy.get('.more-articles').contains('More Articles').scrollIntoView({duration:3000}).click();
         cy.wait(2000)
         cy.get('li.stream-article').its('length').should('eq',7)
+        // cy.get('li.stream-article').should('have.length', 7);
         cy.reload();
     });
 
@@ -38,7 +39,7 @@ describe('Basic commands in cypress' , ()=>{
     it('Test Research car section',()=>{
         cy.get('.dropdown-wrapper:not(:last-child)').each(($e)=>{
             cy.wrap($e).click();
-            cy.wait(100)
+            cy.wait(2000)
             cy.get('.item').first().click();
         });
         cy.get('.button-wrap').should('have.attr','href','https://www.forbes.com/wheels/cars/acura/tlx/');
