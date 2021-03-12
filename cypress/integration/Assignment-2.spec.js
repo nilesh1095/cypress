@@ -1,8 +1,8 @@
 describe('Assignment 2',()=>{
-    before(()=>{
+    beforeEach(()=>{
         //visit https://www.forbes.com/wheels/best/sedans/
     });
-
+    //Attempt Any three
     it('check if visited page has title "Best Sedans For 2021 - Forbes Wheels", url includes "best/sedans/" & protocol "https"',()=>{
 
     });
@@ -36,6 +36,7 @@ describe('Assignment 2',()=>{
     // 3. Add any three cars in compare by clicking Add to compare
     // 4. Test the same page for visual testing in Desktop ,  Mobile and Tablet after doing all the above steps.
 
+    //This one is compulsory
     it('Test-Desktop',()=>{
 
     })

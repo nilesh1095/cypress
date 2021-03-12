@@ -1,15 +1,17 @@
 ///<reference types="Cypress" />
 describe('Basic commands in cypress' , ()=>{
-    before(()=>{
+    beforeEach(()=>{
         cy.visit('https://www.forbes.com/wheels/');
     });
 
     it('visit wheels homepage',()=>{
+        // cy.visit('https://www.forbes.com/wheels/');
         cy.location('protocol').should('eq','https:')
         cy.title().should('eq','Forbes Wheels: Car Shopping Simplified');
     });
 
     it('Scroll to bottom and click on More Articles',()=>{
+        // cy.visit('https://www.forbes.com/wheels/');
         cy.get('.more-articles').contains('More Articles').scrollIntoView({duration:3000}).click();
         cy.wait(2000)
         cy.get('li.stream-article').its('length').should('eq',7)
@@ -18,6 +20,7 @@ describe('Basic commands in cypress' , ()=>{
     });
 
     it('Click Latest review section post' , ()=>{
+        // cy.visit('https://www.forbes.com/wheels/');
         cy.get('.latest-review-wrapper').within(($e)=>{
             cy.get('.post-item').first().click();
             cy.url().should('include','cars/hyundai/sonata/');
@@ -27,6 +30,9 @@ describe('Basic commands in cypress' , ()=>{
     });
 
     it('make header non sticky',()=>{
+        // cy.visit('https://www.forbes.com/wheels/');
+        // const header = document.querySelector('.header-wrap')
+        // console.log(header)
         cy.get('.header-wrap').then(($element) => {
             $element[0].setAttribute('style', 'position: relative;');
         });
@@ -37,6 +43,7 @@ describe('Basic commands in cypress' , ()=>{
     });
 
     it('Test Research car section',()=>{
+        // cy.visit('https://www.forbes.com/wheels/');
         cy.get('.dropdown-wrapper:not(:last-child)').each(($e)=>{
             cy.wrap($e).click();
             cy.wait(2000)
@@ -45,4 +52,4 @@ describe('Basic commands in cypress' , ()=>{
         cy.get('.button-wrap').should('have.attr','href','https://www.forbes.com/wheels/cars/acura/tlx/');
         cy.get('.search-button').click();
     })
-})
+});
